@@ -1,0 +1,17 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /demo
+
+mob:
+  push:
+    appKey: ""
+    appSecret: ""
+
+spring:
+  profiles:
+    active: dev
+
+logging:
+  level:
+    com.xujiaji.*: debug

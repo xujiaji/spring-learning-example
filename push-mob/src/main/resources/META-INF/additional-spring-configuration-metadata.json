@@ -1,0 +1,14 @@
+{
+  "properties": [
+    {
+      "name": "mob.push.appKey",
+      "type": "java.lang.String",
+      "description": "Description for mob.push.appKey."
+    },
+    {
+      "name": "mob.push.appSecret",
+      "type": "java.lang.String",
+      "description": "Description for mob.push.appSecret."
+    }
+  ]
+}

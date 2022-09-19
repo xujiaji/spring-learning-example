@@ -1,6 +1,7 @@
 package com.xujiaji.cacheredisredisson.service;
 
 import com.xujiaji.cacheredisredisson.task.RunnableTask;
+import com.xujiaji.cacheredisredisson.task.RunnableTask2;
 import lombok.extern.slf4j.Slf4j;
 import org.redisson.RedissonNode;
 import org.redisson.api.CronSchedule;
@@ -33,9 +34,10 @@ public class ScheduledTestService {
         RScheduledExecutorService executorService = redissonClient.getExecutorService("myExecutor");
 //        RScheduledFuture<?> future = executorService.schedule(new RunnableTask(), 10, TimeUnit.SECONDS);
 
-        for (int i = 0; i < 1000 * 1000; i++) {
-            int finalI = i;
-            executorService.schedule((Runnable & Serializable) ()-> log.info("hello world" + finalI),10,TimeUnit.SECONDS);
+        for (int i = 0; i < 10; i++) {
+            final RunnableTask2 runnableTask2 = new RunnableTask2();
+            runnableTask2.setNum(i);
+            executorService.schedule(runnableTask2,10,TimeUnit.SECONDS);
         }
 
         log.info(executorService.getName());
